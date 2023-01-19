@@ -56,7 +56,7 @@ const AddPatient = () => {
     return (
         <div>
 
-            <h2 className='text-4xl font-semibold my-10 text-center'>Add A Product</h2>
+            <h2 className='text-4xl font-semibold my-10 text-center'>Add A Patient</h2>
             <form onSubmit={handleSubmit} className='md:w-1/2 mx-auto py-10 px-5 md:p-10 rounded-3xl shadow-md'>
                 <div className='flex gap-10'>
                     <div className="form-control w-full max-w-xs">
