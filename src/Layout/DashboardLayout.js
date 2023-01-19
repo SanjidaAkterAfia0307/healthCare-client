@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthProvider';
+import Footer from '../Pages/Shared/Footer';
 // import Sidebar from '../Pages/Dashboard/Sidebar/Sidebar';
 import Header from '../Pages/Shared/Header';
 
@@ -27,7 +28,7 @@ const {user,loading}=useContext(AuthContext)
                 </div>
                 <div className="drawer-side shadow-xl">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                    <div className="menu p-4 w-80 text-base-content">
+                    <div className="menu p-4 w-80 bg-white text-base-content">
                         {/* SideNav------------- */}
 
                         <div>
@@ -89,6 +90,7 @@ const {user,loading}=useContext(AuthContext)
 
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

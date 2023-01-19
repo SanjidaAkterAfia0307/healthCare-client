@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
-// import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 
 
 const Header = () => {
@@ -20,7 +20,7 @@ const Header = () => {
 
 
   return (
-    <nav className='w-full  bg-white ' >
+    <nav className='w-full shadow-md bg-white ' >
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -99,13 +99,13 @@ const Header = () => {
                   <li className=" font-semibold text-xl hover:underline text-teal-400">
                     <Link onClick={handleLogOut} >Log Out</Link>
                   </li>
-                  {/* <li className=" font-semibold text-xl hover:underline text-teal-400">
+                  <li className=" font-semibold text-xl hover:underline text-teal-400">
                     <Link >
                       <div className="tooltip tooltip-bottom" data-tip={user?.displayName ? user?.displayName : "User"}>
                         <button ><img className='rounded-full w-10' src={user?.photoURL ? user?.photoURL : <FaUserCircle></FaUserCircle>} alt="" /></button>
                       </div>
                     </Link>
-                  </li> */}
+                  </li>
                 </>
                 :
                 <>
