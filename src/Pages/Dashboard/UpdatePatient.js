@@ -9,9 +9,9 @@ const UpdatePatient = () => {
     const id = useLocation().pathname.split('/')[3]
     const navigate = useNavigate()
     console.log(id)
-    const { data: patient = [], refetch } = useQuery({
+    const { data: patient = [], } = useQuery({
         queryKey: ['patient'],
-        queryFn: () => fetch(`http://localhost:7000/patient/${id}`)
+        queryFn: () => fetch(`https://server-sanjidaakterafia0307.vercel.app/singlePatient/${id}`)
             .then(res => res.json())
     })
     console.log(patient)
@@ -33,11 +33,10 @@ const UpdatePatient = () => {
      
         console.log( des, patientName, gender, email, guardian, examiner, phone, ailment, age)
         const body={  des,  patientName, gender, email, guardian, examiner, phone, ailment, age } 
-        fetch(`http://localhost:7000/patient/${_id}?email=${user.email}`, {
+        fetch(`https://server-sanjidaakterafia0307.vercel.app/patient/${_id}?email=${user.email}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
-                // authorization: `bearer ${localStorage.getItem("bookToken")}`
             },
             body: JSON.stringify(body)
         })
@@ -53,7 +52,7 @@ const UpdatePatient = () => {
     return (
         <div>
 
-            <h2 className='text-4xl font-semibold my-10 text-center'>Add A Product</h2>
+<h2 className='text-4xl font-semibold my-10 text-center'>Update Patient Data</h2>
             <form onSubmit={handleUpdate} className='md:w-1/2 mx-auto py-10 px-5 p-10 lg:px-16 rounded-3xl shadow-md'>
                 <div className='flex gap-10'>
                     <div className="form-control w-full max-w-xs">

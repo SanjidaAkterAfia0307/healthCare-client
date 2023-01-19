@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import NoData from '../../Components/NoData';
 import SingleData from '../../Components/SingleData';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
@@ -6,10 +7,13 @@ const MyData = () => {
     const {user}=useContext(AuthContext)
     const [datas,setDatas]=useState([])
     useEffect(()=>{
-        fetch(`http://localhost:7000/patient/${user.email}`)
+        fetch(`https://server-sanjidaakterafia0307.vercel.app/patient/${user.email}`)
         .then(res=>res.json())
         .then(data=>setDatas(data))
     },[user.email])
+    if(datas.length<=0){
+        return <NoData item="Data"></NoData>
+    }
     return (
         <div>
             

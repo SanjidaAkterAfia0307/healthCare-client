@@ -6,13 +6,10 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 const Register = () => {
     const { user, createUser, updateUser, googleLogin } = useContext(AuthContext)
     const [saveAs, setSaveAs] = useState('Patient')
-    const [createEmail, setCreateEmail] = useState('')
-    // const [token] = useToken(createEmail)
     const navigate = useNavigate()
-    const [error, setError] = useState("fal")
+    const [error, setError] = useState("")
 
-console.log(process.env.REACT_APP_IMG)
-    // handle submit
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -43,7 +40,6 @@ console.log(process.env.REACT_APP_IMG)
                 createUser(email, password)
                     .then(res => {
                         const user = res.user;
-                        console.log(user)
                         setSaveAs('Buyer')
                         // update user
                         const profile = {
@@ -59,7 +55,7 @@ console.log(process.env.REACT_APP_IMG)
                             .catch(er => console.error(er))
 
                     })
-                    .catch(er => console.error(er))
+                    .catch(er => setError(er))
 
 
             })
@@ -83,18 +79,16 @@ console.log(process.env.REACT_APP_IMG)
 
     const saveUser = (name, email, photo, role) => {
         const user = { name, email, photo, role }
-        fetch("http://localhost:7000/users", {
+        fetch("https://server-sanjidaakterafia0307.vercel.app/users", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
-                // authorization: `bearer ${localStorage.getItem("bookToken")}`
             },
             body: JSON.stringify(user)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                // setCreateEmail(email)
+                navigate("/")
             })
     }
 
@@ -129,7 +123,7 @@ console.log(process.env.REACT_APP_IMG)
                         <option onClick={(e) => { setSaveAs(e.value) }}>Patient</option>
                     </select>
                    
-                    <p className='text-base text-rose-700 py-3'>{error}!</p>
+                    <p className='text-base text-rose-700 py-3'>{error}</p>
                     <button type="submit" className="text-white bg-teal-500 hover:bg-teal-600  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
 
                     <div className="divider">Or</div>

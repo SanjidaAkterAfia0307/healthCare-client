@@ -61,7 +61,7 @@ export const router=createBrowserRouter([
             {
                 path:"/dashboard/patient/:id",
                 element:<PrivateRoute><SinglePatient/></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:7000/patient/${params.id}`)
+                loader:({params})=>fetch(`https://server-sanjidaakterafia0307.vercel.app/singlePatient/${params.id}`)
             },
         ]
     }

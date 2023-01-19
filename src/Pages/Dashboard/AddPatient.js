@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -7,11 +6,6 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 const AddPatient = () => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
-    const { data: categories = [] } = useQuery({
-        queryKey: ['categories'],
-        queryFn: () => fetch('https://assignment-12-server-sanjidaakterafia0307.vercel.app/bookGenre')
-            .then(res => res.json())
-    })
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -26,7 +20,7 @@ const AddPatient = () => {
         const guardian =form.guardian.value;
         const image = form.photo.files[0]
 
-        // console.log( patientName, age, des,ailment,examiner,gender,phone,email,image)
+
         const formData = new FormData()
         formData.append('image', image)
 
@@ -38,14 +32,12 @@ const AddPatient = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 const img = data?.data?.display_url;
                 const product = { patientName, age, des,ailment,examiner,gender,phone,email,guardian,img}
-                fetch(`http://localhost:7000/patient?email=${user.email}`, {
+                fetch(`https://server-sanjidaakterafia0307.vercel.app/patient?email=${user.email}`, {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
-                        // authorization: `bearer ${localStorage.getItem("bookToken")}`
                     },
                     body: JSON.stringify(product)
                 })
@@ -61,7 +53,6 @@ const AddPatient = () => {
 
     }
 
-    // console.log(process.env.REACT_APP_IMG)
     return (
         <div>
 

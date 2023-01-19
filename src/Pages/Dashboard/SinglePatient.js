@@ -6,7 +6,7 @@ const SinglePatient = () => {
     const { _id, des, img, patientName, gender, email, guardian, examiner, phone, ailment, age } = patient
     return (
         <div>
-            <h2 className='text-4xl font-semibold my-10 text-center'>Add A Product</h2>
+            <h2 className='text-4xl font-semibold my-10 text-center'>Patient Details</h2>
             <div className='md:w-1/3 mx-auto py-10 px-5 md:p-10 rounded-3xl shadow-md'>
                 <figure>
                     <img src={img} className=" w-fit" alt="" />

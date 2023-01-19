@@ -7,7 +7,6 @@ import { FaUserCircle } from 'react-icons/fa';
 const Header = () => {
   const { user, logOut } = useContext(AuthContext)
 
-  console.log(user)
   const handleLogOut = () => {
     logOut()
       .then(() => { })
@@ -85,9 +84,6 @@ const Header = () => {
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className=" font-semibold text-xl hover:underline text-teal-400">
                 <Link to="/">Home</Link>
-              </li>
-              <li className=" font-semibold text-xl hover:underline text-teal-400">
-                <Link to="/blog">Blog</Link>
               </li>
               <li className=" font-semibold text-xl hover:underline text-teal-400">
                 <Link to='/dashboard' >Dashboard</Link>

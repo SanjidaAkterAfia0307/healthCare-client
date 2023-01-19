@@ -12,7 +12,7 @@ const {user,loading}=useContext(AuthContext)
     useEffect(()=>{
         if(!loading){
             
-            fetch(`http://localhost:7000/userTest?email=${user?.email}`)
+            fetch(`https://server-sanjidaakterafia0307.vercel.app/userTest?email=${user?.email}`)
             .then(res=>res.json())
             .then(data=>setIsPatient(data))
         }
